@@ -1,44 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
+  <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+  <!-- Linking the main css file -->
+  <link rel="stylesheet" href="styles.css">
+  <!-- Linking the font "Space Mono" from Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <!-- Linking the main js file -->
+  <script src="main.js" defer></script>
   <title>Frontend Mentor | Tip calculator app</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
+
 <body>
-
-  Bill
-
-  Select Tip %
-  5%
-  10%
-  15%
-  25%
-  50%
-  Custom
-
-  Number of People
-
-  Tip Amount
-  / person
-
-  Total
-  / person
-
-  Reset
-  
+  <div class="container">
+    <img src="./images/logo.svg" alt="Splitter">
+    <div class="card">
+      <div class="input-fields">
+        <div class="bill-input">
+          <label for="bill">Bill</label>
+          <div>
+            <img src="./images/icon-dollar.svg" alt="gray dollar icon">
+            <input type="text" id="bill" placeholder="0" autocomplete="off" maxlength="12">
+          </div>
+        </div>
+        <div class="select-tip-input">
+          <label for="">Select Tip %</label>
+          <div class="tips-container">
+            <div class="tip unselected">5%</div>
+            <div class="tip unselected">10%</div>
+            <div class="tip unselected">15%</div>
+            <div class="tip unselected">25%</div>
+            <div class="tip unselected">50%</div>
+            <input type="text" class="tip-custom" placeholder="Custom" maxlength="3" autocomplete="off">
+          </div>
+        </div>
+        <div class="number-of-people-input">
+          <label for="nb-of-people">Number of People</label>
+          <div>
+            <img src="./images/icon-person.svg" alt="gray person icon">
+            <input type="text" id="nb-of-people" placeholder="0" autocomplete="off" maxlength="12">
+          </div>
+        </div>
+      </div>
+      <div class="result-screen">
+        <div class="result">
+          <div class="title">Tip Amount<br><span>/ person</span></div>
+          <div class="money">0.00</div>
+        </div>
+        <div class="result">
+          <div class="title">Total<br><span>/ person</span></div>
+          <div class="money">0.00</div>
+        </div>
+        <button disabled autocomplete="off">Reset</button>
+      </div>
+    </div>
+  </div>
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+    Coded by <a href="#">Salah Najem</a>.
   </div>
 </body>
+
 </html>

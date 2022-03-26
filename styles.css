@@ -1,0 +1,267 @@
+/* Global Rules */
+:root {
+  --strong-cyan: hsl(172, 67%, 45%);
+  --very-dark-cyan: hsl(183, 100%, 15%);
+  --dark-grayish-cyan: hsl(186, 14%, 43%);
+  --grayish-cyan: hsl(184, 14%, 56%);
+  --light-grayish-cyan: hsl(185, 41%, 84%);
+  --very-light-grayish-cyan: hsl(189, 41%, 97%);
+  --hover-color: hsl(173, 61%, 77%);
+}
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Space Mono", monospace;
+  font-size: 24px;
+  background-color: var(--light-grayish-cyan);
+}
+label {
+  font-size: 16px;
+  color: var(--dark-grayish-cyan);
+  position: relative;
+}
+input {
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+  text-align: right;
+  background-color: var(--very-light-grayish-cyan);
+  padding: 5px 15px;
+  border-radius: 5px;
+  border: none;
+  color: var(--very-dark-cyan);
+}
+input:not(.tip-custom) {
+  width: 100%;
+}
+input:focus {
+  outline: 2.4px solid var(--strong-cyan);
+}
+input:not(.tip-custom)::placeholder {
+  color: var(--grayish-cyan);
+}
+label + div {
+  position: relative;
+}
+label + div > img {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 15px;
+}
+button {
+  font-size: 24px;
+  font-family: "Space Mono", monospace;
+  text-transform: uppercase;
+  border: none;
+  color: var(--very-dark-cyan);
+  background-color: var(--strong-cyan);
+}
+input.invalid {
+  outline: 2.4px solid red;
+  position: relative;
+}
+div.invalid::before {
+  position: absolute;
+  content: "Can't be zero";
+  color: red;
+  right: 0;
+  top: 8px;
+  font-size: 16px;
+}
+/* End Global Rules */
+/* Tip Calculator */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+}
+.container > img {
+  margin-bottom: 60px;
+}
+.card {
+  background-color: white;
+  padding: 30px;
+  display: flex;
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.05);
+}
+.card .input-fields .select-tip-input .tips-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, auto));
+  gap: 15px;
+  margin-top: 10px;
+}
+.card .input-fields .select-tip-input .tips-container .tip {
+  background-color: var(--very-dark-cyan);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+.card .input-fields .select-tip-input .tips-container .unselected:hover {
+  background-color: var(--hover-color);
+  color: var(--very-dark-cyan);
+}
+.card .input-fields .select-tip-input .tips-container .selected {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+  cursor: default;
+}
+.card .input-fields .select-tip-input .tips-container .tip-custom {
+  width: 120px;
+}
+.card .input-fields .select-tip-input .tips-container .tip-custom::placeholder {
+  color: var(--dark-grayish-cyan);
+  opacity: 1;
+}
+.card .input-fields > div:not(:last-child) {
+  margin-bottom: 20px;
+}
+.card .input-fields {
+  margin-right: 40px;
+  padding: 10px;
+}
+.number-of-people-input {
+  position: relative;
+}
+.card .result-screen {
+  background-color: var(--very-dark-cyan);
+  color: white;
+  font-size: 14px;
+  padding: 30px;
+  border-radius: 15px;
+  min-width: 400px;
+  position: relative;
+}
+.card .result-screen .result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card .result-screen .result:first-child {
+  margin-bottom: 30px;
+}
+.card .result-screen .result span {
+  font-size: 11px;
+  display: block;
+  width: fit-content;
+  color: var(--grayish-cyan);
+}
+.card .result-screen .money {
+  font-size: 40px;
+  color: var(--strong-cyan);
+  text-align: right;
+  margin-left: 20px;
+}
+.card .result-screen .money::before {
+  content: "$";
+}
+.card .result-screen button {
+  bottom: 30px;
+  left: 30px;
+  width: calc(100% - 60px);
+  border-radius: 5px;
+  font-size: 16px;
+  padding: 10px;
+  position: absolute;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.card .result-screen button:not(:disabled):hover {
+  background-color: var(--hover-color);
+}
+.card .result-screen button:disabled {
+  opacity: 0.3;
+  cursor: default;
+  color: var(--dark-grayish-cyan);
+}
+@media (max-width: 900px) {
+  .container > img {
+    margin-top: 60px;
+  }
+  .card {
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: none;
+  }
+  .card .input-fields {
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .card .input-fields .select-tip-input .tips-container {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+  .card .input-fields .select-tip-input .tips-container .tip-custom {
+    width: auto;
+  }
+  .card .result-screen {
+    padding: 20px;
+    min-height: 220px;
+    min-width: 100%;
+  }
+  .card .result-screen .money {
+    font-size: 30px;
+    margin: 0;
+  }
+  .card .result-screen .result:first-child {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .card .result-screen button {
+    left: 20px;
+    bottom: 20px;
+    width: calc(100% - 40px);
+  }
+}
+/* End Tip Calculator */
+/* Attribution Section */
+.attribution {
+  font-size: 11px;
+  position: absolute;
+  left: 50%;
+  bottom: 5px;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--very-dark-cyan);
+}
+.attribution a {
+  color: var(--light-grayish-cyan);
+  text-decoration: none;
+  background-color: var(--very-dark-cyan);
+  display: inline-block;
+  padding: 5px;
+  transition: background-color 0.3s;
+}
+.attribution a:hover {
+  background-color: var(--strong-cyan);
+}
+@media (max-width: 900px) {
+  .attribution {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    transform: none;
+    padding: 7px;
+    background-color: white;
+  }
+  .attribution a {
+    color: white;
+  }
+}
+/* End Attribution Section */
