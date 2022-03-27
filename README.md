@@ -28,8 +28,8 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [My Solution](https://your-solution-url.com)
-- Live Site URL: [Live Demo](https://your-live-site-url.com)
+- Solution URL: [My Solution](https://github.com/Salah1221/Tip-calculator-app)
+- Live Site URL: [Live Demo](https://salah1221.github.io/Tip-calculator-app/)
 
 ## My process
 

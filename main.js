@@ -23,9 +23,8 @@ function deselectAll(btnArr) {
     x.classList.add("unselected");
   });
 }
-function makePositive(input, num) {
-  if (num < -1) input.value = input.value.slice(1);
-  num = Math.abs(num);
+function makePositive(input) {
+  if (input.value[0] == "-") input.value = input.value.slice(1);
 }
 function inputValidation() {
   if (numberOfPeople == 0) {
@@ -62,10 +61,10 @@ function resetResult() {
 // Bill Input
 billInput.oninput = () => {
   removeNonDigit(billInput);
-  if (billInput.value) bill = +billInput.value;
+  if (billInput.value) bill = Math.abs(+billInput.value);
   else bill = -1;
   inputValidation();
-  makePositive(billInput, bill);
+  makePositive(billInput);
 };
 // Select Tip %
 tipButtons.forEach((btn, _, btnArr) => {
@@ -82,21 +81,22 @@ customTip.oninput = () => {
   removeNonDigit(customTip);
   if (customTip.value) {
     deselectAll(tipButtons);
-    tipValue = +customTip.value;
+    tipValue = Math.abs(+customTip.value);
   } else tipValue = -1;
   inputValidation();
-  makePositive(customTip, tipValue);
+  makePositive(customTip);
 };
 // Number of people
 numberOfPeopleInput.oninput = () => {
   removeNonDigit(numberOfPeopleInput);
+  numberOfPeopleInput.value = parseInt(numberOfPeopleInput.value);
   if (numberOfPeopleInput.value) {
-    numberOfPeople = +numberOfPeopleInput.value;
+    numberOfPeople = Math.abs(+numberOfPeopleInput.value);
   } else numberOfPeople = -1;
   numberOfPeopleInput.classList.remove("invalid");
   numberOfPeopleInput.parentElement.parentElement.classList.remove("invalid");
   inputValidation();
-  makePositive(numberOfPeopleInput, numberOfPeople);
+  makePositive(numberOfPeopleInput);
 };
 // Tip Amount and Total
 resetButton.onclick = () => {
