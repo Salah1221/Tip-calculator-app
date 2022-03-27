@@ -12,6 +12,7 @@ let totalResult = document.querySelector(".result:last-of-type .money");
 // Global Methods
 function removeNonDigit(input) {
   let aux = parseFloat(input.value);
+  input.value = input.value.trim();
   if (isNaN(+input.value)) {
     if (isNaN(aux)) input.value = input.value.slice(1);
     else input.value = aux;
